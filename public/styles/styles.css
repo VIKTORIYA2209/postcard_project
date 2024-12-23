@@ -1,0 +1,122 @@
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #318cc0db;
+  text-align: center;
+  padding: 20px;
+}
+
+
+.section {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.section.active {
+  display: block;
+}
+
+.form-input {
+  margin: 10px 0;         /* Відступи */
+  padding: 10px;          /* Внутрішні відступи */
+  width: 100%;            /* Розмір по ширині (100% від батьківського контейнера) */
+  max-width: 300px;       /* Максимальна ширина */
+  height: 50px;           /* Висота поля */
+  font-size: 14px;        /* Розмір шрифту */
+  border: 1px solid #81cdc4; /* Колір рамки */
+  border-radius: 10px;    /* Скруглені кути */
+  box-sizing: border-box; /* Враховує padding і border у ширині */
+}
+
+#preview {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+/* Стилі для контейнера форми */
+#form {
+  display: flex;         /* Використовуємо флексбокс */
+  flex-direction: column; /* Розміщення елементів у стовпчик */
+  align-items: center;    /* Вирівнювання по центру */
+  justify-content: center;
+  gap: 15px;              /* Відстань між елементами */
+}
+
+/* Стилі для кнопки */
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #318cc0db;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkbox-group {
+  display: flex;          /* Включення Flexbox */
+  /*flex-direction: column;  Розміщення елементів у стовпчик */
+  align-items: center;    /* Вирівнювання по центру по горизонталі */
+  justify-content: center;/* Вирівнювання по центру по вертикалі */
+  gap: 15px;              /* Відстань між елементами */
+}
+
+.button:hover {
+  background-color: #ade8f1; /* Колір кнопки при наведенні */
+}
+
+#start-music {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #318cc0db;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Контейнер для сніжинок */
+#snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Покриває весь екран */
+  height: 100vh; /* Покриває весь екран */
+  z-index: 9999; /* Завжди поверх інших елементів */
+  pointer-events: none; /* Не блокує взаємодію з іншими елементами */
+}
+
+/* Клас для сніжинок */
+.snowflake {
+  position: absolute;
+  top: -10px; /* Починаємо анімацію за межами екрану */
+  color: #ffffff; /* Колір сніжинок */
+  font-size: 10px; /* Розмір сніжинки */
+  user-select: none; /* Сніжинка не виділяється */
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Анімація падіння сніжинки */
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(30px); /* Фіксоване значення */
+    opacity: 0;
+  }
+}

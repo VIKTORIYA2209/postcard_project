@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="scripts/Roboto-Regular.js"></script>
+
+  <!-- Підключаємо фонову музику -->
+<audio id="background-music" autoplay loop>
+  <source src="music/rojdestvenskaya-melodiya.mp3" type="audio/mpeg">
+</audio>
+
+  <title>Створення листівки</title>
+  <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div id="snow-container"></div>
+  <!-- Сторінка 1 -->
+  <div id="page1" class="section active" style="background-image: url('images/season-s-greetings-snowflake-frame-remix-photography-by-wilson-bentley.jpg');">
+   <h1>Привіт! Тут ти можеш створити свою листівку від Святого Миколая 🎅</h1>
+    <button id="start-music" onclick="playMusic()"> Давай вімкнемо трішки магії ?</button>
+    <button id="snowButton" class="button">Запустити сніг ❄️</button>
+    <h3>Під час новорічних свят, коли діти особливо гостро хочуть відчути чарівні та казкові емоції, пропонуємо створити лист, який буде написаний «самим» Святим Миколаєм і адресований безпосередньо вашій дитині. 
+    </h3><h3>Такий лист неймовірно порадує дитину та буде мотивувати її на подальший розвиток і успішне навчання.      
+    </h3><h3>Оскільки лист іменний і буде містити особливу інформацію, «отриману з чарівних джерел»,
+        вам необхідно доповнити текст листа деякими даними: вписати ім’я вашої дитини та побажаннями від вас, все інше доповнить чарівник.</h3>
+    <button class="button" onclick="goToPage(2)">Бажаєш спробувати сформувати побажання📜?</button>
+  </div>
+
+
+  <!-- Сторінка 2 -->
+  <div id="page2" class="section" style="background-image: url('images/4505931.jpg');">
+    <h1>Заповніть форму нижче, щоб створити персональне привітання ❄️</h1>
+    <form id="form">
+      <input type="text" id="name" class="form-input" placeholder="Впишіть ім’я з великої літери" required>
+      <textarea id="wishes" class="form-input" rows="4" placeholder="Впишіть, що ви хочете побажати" required></textarea>
+         <!-- Чекбокси -->
+    <div class="checkbox-group">
+      <input type="checkbox" id="girlCheckbox">
+      <label for="girlCheckbox">Лист формуємо для дівчинки</label>
+      <br>
+      <input type="checkbox" id="boyCheckbox">
+      <label for="boyCheckbox">Лист формуємо для хлопчика</label>
+    </div>
+     
+      <button type="button" class="button" onclick="generatePreview()">Переглянути лист</button>
+    </form>
+  </div>
+
+  <!-- Сторінка 3 -->
+  <div id="page3" class="section" style="background-image: url('images/season-s-greetings-snowflake-frame-remix-photography-by-wilson-bentley.jpg');">
+    <h1>Вітаю!Ваше привітання готове!</h1>
+    <div id="preview">
+        <iframe id="pdfPreview" style="width: 100%; height: 500px; border: none;"></iframe>
+      </div>
+    <button class="button" onclick="downloadPDF()">Завантажити PDF</button>
+    <h2> Веселих свят, гарного настрою та мирного неба❄️🎄❄️</h2>
+  </div>
+
+  <script src="scripts/scripts.js"></script>
+
+  <button id="sendEmailButton">Відправити лист на пошту 📧</button>
+  <!-- Підключення frontend.js -->
+  <script type="module" src="scripts/frontend.js"></script>
+</body>
+</html>
