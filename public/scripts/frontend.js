@@ -16,8 +16,9 @@ function sendPDFToEmail() {
     formData.append('pdf', pdfBlob, 'лист.pdf');
     formData.append('email', email);
   
+    const PORT = process.env.PORT || 3000;
     // Відправка на сервер
-    fetch('http://localhost:3000/send-email', { // Додано повний шлях
+    fetch('http://localhost:PORT/send-email', { // Додано повний шлях
       method: 'POST',
       body: formData,
     })
